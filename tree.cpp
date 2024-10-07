@@ -50,8 +50,12 @@ TreeNode* insert(TreeNode* root, int value) {
 };
 
 bool is_mirror(TreeNode* t1, TreeNode* t2) {
-    if (!t1 && !t2) return true;
-    if (!t1 || !t2) return false;
+    if (!t1 && !t2){
+        return true;
+    }
+    if (!t1 || !t2){
+        return false;
+    }
     return (t1->value == t2->value) && 
            is_mirror(t1->left, t2->right) && 
            is_mirror(t1->right, t2->left);
@@ -63,7 +67,7 @@ bool is_symmetric(TreeNode* root) {
 
 void mirror_tree(TreeNode* root) {
     if (root) {
-        std::swap(root->left, root->right);
+        swap(root->left, root->right);
         mirror_tree(root->left);
         mirror_tree(root->right);
     }
